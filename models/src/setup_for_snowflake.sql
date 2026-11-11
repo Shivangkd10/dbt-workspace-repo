@@ -1,12 +1,5 @@
 -- ##purely for snowflake
 
-use database snowflake_sample_data;
-use schema TPCH_SF1;
-use warehouse snowflake_learning_wh;
-
-show tables;
-select * from customer;
-
 
 ----------------
 
