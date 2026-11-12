@@ -40,3 +40,6 @@ models:
     # Applies to all files under models/dim/
     dim:
       +materialized: table
+    src:
+      +materialized: ephemeral
+

@@ -1,5 +1,7 @@
 ---------minimum night and data type of price colomn changed
 
+{{ config (materialized= 'view')}}
+
 WITH src_listings AS (
 
     SELECT *

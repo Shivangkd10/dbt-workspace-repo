@@ -1,7 +1,7 @@
 -------host name null to be renamed
 ----  So NVL is a generic SQL function which allows you
 --  to replace null with more meaningful alternatives. ----
-
+{{config (materialized='view')}}
 WITH src_hosts AS (
 
     SELECT *
