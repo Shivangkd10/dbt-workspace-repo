@@ -2,7 +2,7 @@ WITH raw_reviews AS (
     SELECT
         *
     FROM
-        DATA_ENG_DBT.RAW.RAW_REVIEWS
+         {{source('DATA_ENG_DBT','reviews')}}
 )
 
 SELECT
