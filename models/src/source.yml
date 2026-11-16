@@ -12,3 +12,6 @@ sources:
 
       - name: reviews
         identifier: raw_reviews
+
+      - name: sales
+        identifier: sales_us
