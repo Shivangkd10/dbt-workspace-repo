@@ -2,7 +2,7 @@ WITH raw_listings AS (
     SELECT
         *
     FROM
-        DATA_ENG_DBT.RAW.RAW_LISTINGS
+        {{source('DATA_ENG_DBT','listings')}}
 )
 
 SELECT
