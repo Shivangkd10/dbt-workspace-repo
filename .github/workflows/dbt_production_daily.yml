@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install dbt-snowflake==2.0.12
+          pip install dbt-snowflake==1.12.5
           dbt deps --target prod
           
       - name: run all models 
