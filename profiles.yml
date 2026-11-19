@@ -1,0 +1,38 @@
+deploy_dbt_course:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: st49988.aws_us_east_2
+
+      # User/password auth
+      user: DBT_EXECUTOR
+      password: doe
+
+      role: dbt_executor_role
+      database: DATA_ENG_DBT
+      warehouse: DBT_WAREHOUSE
+
+      # in the future you should switch this schema to use a new environment variable
+      # definitely switch this to your schema though
+      schema: dev
+      threads: 4
+      client_session_keep_alive: False
+
+    prod:
+      type: snowflake
+      account: st49988.aws_us_east_2
+
+      # User/password auth
+      user: DBT_EXECUTOR
+      password: doe
+
+      role: dbt_executor_role
+      database: DATA_ENG_DBT
+      warehouse: DBT_WAREHOUSE
+
+      # in the future you should switch this schema to use a new environment variable
+      # definitely switch this to your schema though
+      schema: prod
+      threads: 4
+      client_session_keep_alive: False
