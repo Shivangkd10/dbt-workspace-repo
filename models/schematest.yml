@@ -16,7 +16,7 @@ models:
         tests:
           - not_null
           - relationships:
-              arguments:
+              # arguments:
                 to: ref('dim_host_cleaned')
                 field: host_id
 
@@ -24,7 +24,7 @@ models:
         description: Type of the apartment / room
         tests:
           - accepted_values:
-              arguments:
+              # arguments:
                 values:
                   - "Entire home/apt"
                   - "Private room"
@@ -40,5 +40,5 @@ models:
         description: This test compares the row count of one model/table against another model/table.
         tests:
           - dbt_expectations.expect_table_row_count_to_equal_other_table:
-              arguments:
+              # arguments:
                 compare_model: source('DATA_ENG_DBT','listings')
