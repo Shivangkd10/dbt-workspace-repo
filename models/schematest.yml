@@ -4,6 +4,10 @@ models:
   - name: dim_listings_cleaned
     description: Cleaned table which contains Airbnb listings.
 
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: source('DATA_ENG_DBT', 'listings')
+
     columns:
       - name: listing_id
         description: Primary key for the listing
@@ -16,29 +20,20 @@ models:
         tests:
           - not_null
           - relationships:
-              # arguments:
-                to: ref('dim_host_cleaned')
-                field: host_id
+              to: ref('dim_host_cleaned')
+              field: host_id
 
       - name: room_type
         description: Type of the apartment / room
         tests:
           - accepted_values:
-              # arguments:
-                values:
-                  - "Entire home/apt"
-                  - "Private room"
-                  - "Shared room"
-                  - "Hotel room"
+              values:
+                - "Entire home/apt"
+                - "Private room"
+                - "Shared room"
+                - "Hotel room"
 
       - name: minimum_nights
         description: dim listing cleaned minimum nights
         tests:
           - positive_value
-
-      - name: dim_listing_w_host
-        description: This test compares the row count of one model/table against another model/table.
-        tests:
-          - dbt_expectations.expect_table_row_count_to_equal_other_table:
-              # arguments:
-                compare_model: source('DATA_ENG_DBT','listings')
