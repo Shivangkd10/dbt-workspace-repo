@@ -29,3 +29,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install dbt-snowflake==1.6.0
           dbt deps --target prod
+          
+      - name: run all models 
+        run: |
+          dbt run --target prod
+
+          
