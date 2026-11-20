@@ -34,6 +34,12 @@ jobs:
       - name: Check account value 
         run: |
           echo "Account: $SNOWFLAKE_ACCOUNT_ID"
+
+          
+      - name: Debug dbt
+        run: |
+          dbt debug --target prod
+          
           
       - name: run all models 
         run: |
