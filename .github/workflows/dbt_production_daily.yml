@@ -40,6 +40,9 @@ jobs:
         run: |
           dbt debug --target prod
           
+      - name:  Load seeds
+        run: |
+          dbt seed --target prod         
           
       - name: run all models 
         run: |
