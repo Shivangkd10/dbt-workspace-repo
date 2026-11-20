@@ -6,7 +6,8 @@ models:
 
     tests:
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
-          compare_model: source('DATA_ENG_DBT', 'listings')
+          arguments:
+            compare_model: source('DATA_ENG_DBT', 'listings')
 
     columns:
       - name: listing_id
@@ -20,18 +21,20 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_host_cleaned')
-              field: host_id
+              arguments:
+                to: ref('dim_host_cleaned')
+                field: host_id
 
       - name: room_type
         description: Type of the apartment / room
         tests:
           - accepted_values:
-              values:
-                - "Entire home/apt"
-                - "Private room"
-                - "Shared room"
-                - "Hotel room"
+              arguments:
+                values:
+                  - "Entire home/apt"
+                  - "Private room"
+                  - "Shared room"
+                  - "Hotel room"
 
       - name: minimum_nights
         description: dim listing cleaned minimum nights
