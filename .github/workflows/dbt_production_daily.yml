@@ -24,11 +24,16 @@ jobs:
         with:
           python-version: '3.11'
 
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install dbt-snowflake==1.12.5
           dbt deps --target prod
+
+      - name: Check account value 
+        run: |
+          echo "Account: $SNOWFLAKE_ACCOUNT_ID"
           
       - name: run all models 
         run: |
