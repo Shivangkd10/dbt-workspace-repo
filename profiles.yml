@@ -21,15 +21,12 @@ deploy_dbt_course:
 
     prod:
       type: snowflake
-      account: st49988.aws_us_east_2
-
-      # User/password auth
-      user: DBT_EXECUTOR
-      password: doe
-
-      role: dbt_executor_role
-      database: DATA_ENG_DBT
-      warehouse: DBT_WAREHOUSE
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT_ID') }}"
+      user: "{{ env_var('SNOWFLAKE_USERNAME') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
 
       # in the future you should switch this schema to use a new environment variable
       # definitely switch this to your schema though
